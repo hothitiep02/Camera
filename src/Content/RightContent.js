@@ -6,7 +6,7 @@ function RightContent() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const data = fetchData(); // Không cần phải dùng then()
+    const data = fetchData(); 
     setProducts(data);
   }, []);
 
@@ -16,7 +16,7 @@ function RightContent() {
       <div id="products">
         {products.map((product) => (
           <ShowCard
-            key={product.id}
+            key={product.name}
             loai={product.loai}
             name={product.name}
             image={product.image}
