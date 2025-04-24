@@ -4,8 +4,7 @@ import './App.css';
 import Header from '../Header/Header';
 import Content from '../../Content/Content';
 import Footer from '../../Footer/Footer';
-import Two from '../../Two';
-import { Component } from 'react';
+import GetData from '../GetData';
 
 function App() {
         return (
@@ -13,8 +12,10 @@ function App() {
             <Header></Header>
             {/* this is content area */}
             <Content></Content>
+            <GetData></GetData>
             {/* footer content */}
             <Footer></Footer>
+           
           </div>
         );
       }

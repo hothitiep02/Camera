@@ -1,8 +1,8 @@
-var Two = function () {
-    return (<div>
-        <h1>こんにちは</h1>
-        </div>);
-  };
+// var Two = function () {
+//     return (<div>
+//         <h1>こんにちは</h1>
+//         </div>);
+//   };
 
   // //Dinh nghia component dung ham don gian 
   // function One () {
@@ -43,4 +43,15 @@ var Two = function () {
 //       );
 //     }
 //   }
+function Two(props) {
+  return (
+    <div>
+       <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <img src={props.linkanh} height="200px" width="200px" class="img"></img>
+        <p>san pham</p>
+        <p>gia san pham</p>
+       </div>
+    </div>
+  )
+}
   export default Two;
