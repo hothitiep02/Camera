@@ -15,8 +15,8 @@ export default function MenuWithPayment() {
   const handleCheckboxChange = (itemName) => {
     setSelectedItems((prevSelected) =>
       prevSelected.includes(itemName)
-        ? prevSelected.filter((item) => item !== itemName) // bỏ chọn
-        : [...prevSelected, itemName] // chọn thêm
+        ? prevSelected.filter((item) => item !== itemName)
+        : [...prevSelected, itemName]
     );
   };
 
@@ -33,63 +33,65 @@ export default function MenuWithPayment() {
       setMessage(
         `Không đủ tiền! Tổng cần: ${total.toLocaleString()}₫. Vui lòng nhập lại số tiền.`
       );
-      setCurrentMoney(""); // bắt nhập lại
+      setCurrentMoney("");
     }
   };
 
   return (
-    <div className="max-w-md mx-auto bg-blue-100 p-6 rounded-lg shadow-md mt-10">
-      <h1 className="text-2xl font-bold text-center mb-6">MENU</h1>
+    <div className="container mt-5">
+      <div className="card mx-auto" style={{ maxWidth: "500px" }}>
+        <div className="card-body">
+          <h1 className="card-title text-center mb-4">MENU</h1>
 
-      <div className="mb-4">
-        <label className="block mb-2 font-semibold">Nhập số tiền hiện tại (₫):</label>
-        <input
-          type="number"
-          value={currentMoney}
-          onChange={(e) => setCurrentMoney(e.target.value)}
-          className="w-full border p-2 rounded-md"
-          placeholder="VD: 50000"
-        />
-      </div>
-
-      <div className="bg-white p-4 rounded-lg">
-        {menuItems.map((item, index) => (
-          <div key={index} className="flex justify-between items-center border-b py-2">
-            <label className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                checked={selectedItems.includes(item.name)}
-                onChange={() => handleCheckboxChange(item.name)}
-              />
-              {item.name}
+          <div className="mb-3">
+            <label className="form-label fw-bold">
+              Nhập số tiền hiện tại (₫):
             </label>
-            <span>{item.defaultPrice.toLocaleString()}₫</span>
+            <input
+              type="number"
+              value={currentMoney}
+              onChange={(e) => setCurrentMoney(e.target.value)}
+              className="form-control"
+              placeholder="VD: 50000"
+            />
           </div>
-        ))}
-      </div>
 
-      <button
-        onClick={handlePayment}
-        style={{
-          width: "15%",
-          backgroundColor: "orange",
-          color: "white",
-          padding: "10px",
-          marginTop: "24px",
-          borderRadius: "8px",
-          border: "none",
-          fontSize: "16px",
-          cursor: "pointer",
-        }}
-      >
-        Thanh toán
-      </button>
+          <div className="list-group mb-3">
+            {menuItems.map((item, index) => (
+              <div key={index} className="list-group-item d-flex justify-content-between align-items-center">
+                <div className="form-check">
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    checked={selectedItems.includes(item.name)}
+                    onChange={() => handleCheckboxChange(item.name)}
+                    id={`item-${index}`}
+                  />
+                  <label className="form-check-label ms-2" htmlFor={`item-${index}`}>
+                    {item.name}
+                  </label>
+                </div>
+                <span>{item.defaultPrice.toLocaleString()}₫</span>
+              </div>
+            ))}
+          </div>
 
-      {message && (
-        <div className="mt-4 text-center font-semibold text-red-600">
-          {message}
+          <div className="d-grid">
+            <button
+              onClick={handlePayment}
+              className="btn btn-warning"
+            >
+              Thanh toán
+            </button>
+          </div>
+
+          {message && (
+            <div className="alert alert-info text-center mt-4" role="alert">
+              {message}
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 }
