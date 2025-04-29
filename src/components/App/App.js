@@ -8,6 +8,8 @@ import GetData from '../GetData';
 import Input from '../../Content/Input';
 import GradeForm from '../../Content/GradeForm';
 import MenuWithPayment from '../../Content/MenuWithPayment';
+import AddForm from '../../Content/AddForm';
+import ProductManager from '../../Content/ProductManager';
 function App() {
         return (
           <div id="container">
@@ -17,7 +19,9 @@ function App() {
             <GetData></GetData>
             <Input></Input> */}
             {/* <GradeForm></GradeForm> */}
-            <MenuWithPayment></MenuWithPayment>
+            {/* <MenuWithPayment></MenuWithPayment> */}
+            <AddForm></AddForm>
+            {/* <ProductManager></ProductManager> */}
             {/* footer content */}
             <Footer></Footer>
          
