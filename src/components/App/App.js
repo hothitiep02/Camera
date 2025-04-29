@@ -18,8 +18,8 @@ function App() {
             <GetData></GetData>
             <Input></Input> */}
             {/* <GradeForm></GradeForm> */}
-            {/* <MenuWithPayment></MenuWithPayment> */}
-            <AddForm></AddForm>
+            <MenuWithPayment></MenuWithPayment>
+            {/* <AddForm></AddForm> */}
             {/* footer content */}
             <Footer></Footer>
          
